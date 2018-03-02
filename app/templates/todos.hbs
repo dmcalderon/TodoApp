@@ -1,5 +1,21 @@
-<h1>GOOOOOOOOD</h1>
-{{#each model as |todoItem|}}
-  {{todo-item todoItem=todoItem}}
-{{/each}}
-{{outlet}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      {{add-todo}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <ul id="sortable" class="list-unstyled">
+      {{#each model as |todoItem|}}
+        {{todo-item todoItem=todoItem id=todoItem.id}}
+      {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="todo-footer">
+  <strong><span class="count-todos"></span></strong> Items Left
+</div>

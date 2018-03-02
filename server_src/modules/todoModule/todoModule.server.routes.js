@@ -8,9 +8,9 @@ module.exports = function(app) {
 
     app.get('/api/todos', routes.userDataModule.getTodo);
 
-    app.post('/api/todo', routes.userDataModule.addTodo);
+    app.post('/api/todos', routes.userDataModule.addTodo);
 
-    app.put('/api/todo', routes.userDataModule.editTodo);
+    app.put('/api/todos/:id', routes.userDataModule.editTodo);
 
-    app.delete('/api/todo', routes.userDataModule.deleteTodo);
+    app.delete('/api/todos/:id', routes.userDataModule.deleteTodo);
 }

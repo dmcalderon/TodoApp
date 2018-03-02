@@ -1,23 +1,26 @@
 'use strict'
 
-let mongoose = require('mongoose');
+const { Pool } = require('pg')
 
-let mongoDbOptions = {};
+//const pool = new Pool()
 
-let config = require('../config/_dbConfig');
+// pools will use environment variables
+// for connection information
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'todos',
+  password: 'password',
+  port: 5432,
+})
 
-let mongoDbURL = config.mongoURI[process.env.NODE_ENV || 'test']; //'mongodb://localhost/blackjack';
-
-mongoose.connect(mongoDbUrl, mongoDbOptions, (err, res) => {
-    
-    if (err) {
-        console.log(`Connection refused to database: ${mongodbURL}`);
-        console.log(err);
-    }
-    
-    else {
-        console.log(`Connection to ${mongoDbUrl} successful!`);
-    }
-});
-
-exports.mongooseConnection = mongoose;
+module.exports = {
+  query: async (text, params, callback) => {
+    return pool.query(text, params, callback)
+  },
+  getClient: async (callback) => {
+    pool.connect((err, client, done) => {
+      callback(err, client, done)
+    });
+  }
+}

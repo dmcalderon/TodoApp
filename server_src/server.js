@@ -10,7 +10,7 @@ let path = require('path');
 //process.env.NODE_ENV = 'development';
 
 if (process.env.NODE_ENV === undefined) {
-    
+
     process.env.NODE_ENV = 'development';
 }
 
@@ -20,9 +20,7 @@ if (process.env.NODE_ENV === undefined) {
 // intercept all http calls, whatever logic is added to handle that
 // 'app.use' case will have to pass through that layer first before
 // reaching their final destination (if at all)
-//app.use(express.static(`${__dirname}`));
-//app.use(express.static('../client/'));
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));

@@ -1,16 +1,18 @@
-<article class="listing">
-  <img src="{{todoItem.image}}" alt="">
-  <h3>{{todoItem.title}}</h3>
-  <div class="detail owner">
-    <span>Owner:</span> {{todoItem.owner}}
+<li class="ui-state-default">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        {{input type="checkbox" checked=todoItem.isComplete change=(action 'onChecked')}}
+      </div>
+    </div>
+    {{input type="text" class="form-control" aria-label="Edit todo text" value=todoItem.text disabled=todoItem.isComplete focus-out='onBlur'}}
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <button type="button" class="close btn btn-outline-secondary" aria-label="Close" onclick={{action 'removeTodo'}}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
   </div>
-  <div class="detail type">
-    <span>Type:</span> {{todoItem.propertyType}}
-  </div>
-  <div class="detail location">
-    <span>Location:</span> {{todoItem.city}}
-  </div>
-  <div class="detail bedrooms">
-    <span>Number of bedrooms:</span> {{todoItem.bedrooms}}
-  </div>
-</article>
+</li>
+
