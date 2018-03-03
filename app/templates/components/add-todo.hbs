@@ -1,16 +1,14 @@
-<div class="todolist not-done">
-  <h1>Todos</h1>
+<div>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <div class="input-group-text">
         {{input type="checkbox" checked=todoChecked}}
       </div>
     </div>
-    {{input type="text" class="form-control" value=todoText placeholder="Enter a new todo" aria-describedby="basic-addon2"}}
+    {{input type="text" class="form-control" value=todoText placeholder="Enter a new todo" aria-describedby="basic-addon2" key-up="checkInputEmpty"}}
     <div class="input-group-append">
-      <button class="btn btn-primary" type="button" onclick={{action 'addTodo'}}>Add Todo</button>
+      <button class="btn btn-primary" type="button" onclick={{action 'addTodo'}} disabled={{isInputEmpty}}>Add Todo</button>
     </div>
   </div>
-
   <hr>
 </div>

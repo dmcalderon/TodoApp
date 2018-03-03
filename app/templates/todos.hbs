@@ -1,11 +1,15 @@
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
+    <h1 class="jumbotron">Todos</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
     <div class="col-md-6">
       {{add-todo}}
     </div>
   </div>
-
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-6">
       <ul id="sortable" class="list-unstyled">
       {{#each model as |todoItem|}}
@@ -14,8 +18,4 @@
       </ul>
     </div>
   </div>
-</div>
-
-<div class="todo-footer">
-  <strong><span class="count-todos"></span></strong> Items Left
 </div>

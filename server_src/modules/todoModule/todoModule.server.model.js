@@ -1,8 +1,5 @@
 'use strict'
 
-//let dbConnection = require('');
-
-//const { Pool, Client } = require('pg')
 const db = require('../../common/databaseConnection');
 
 exports.getAll = async function () {
@@ -46,13 +43,13 @@ exports.editOne = async function (id, text, status) {
   );
 }
 
-exports.logChange = async function (id, text, status) {
+exports.addTodoHistory = async function (todoId, action) {
 
   return await db.query(`
                         INSERT INTO todo_history (todo_id, action, date)
-                        VALUES (id, text, NOW())
+                        VALUES ($1, $2, NOW())
                         `,
-                        [id, text, status]
+                        [todoId, action]
   );
 }
 
