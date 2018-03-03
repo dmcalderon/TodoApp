@@ -1,7 +1,19 @@
 # todo-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a simple single page app that allows you to add, edit and remove todo items.
+You may also mark items as complete / incomplete.<br>
+
+To set this app up locally:
+ 
+ 1. Run 'ember build' at the root level of the application
+ 2. PostgreSQL is the DB used by the application. Find the 'todoDbDump' on the root level of the application.
+ 3. The application database name is assumed to be 'todos'. Follow the instructions found here: <br>https://www.postgresql.org/docs/8.1/static/backup.html#BACKUP-DUMP-RESTORE
+    This will allow you to import the database schema. Alternatively, use PgAdmin to accomplish this task.
+ 4. You will need to modify the server_src/common/databaseConnection.js file to enter your connection settings.
+ 5. Run 'node server_src/server.js'
+ 6. Go to 'http://localhost:8080/#/todos'. You're done!
+ 
+ There are further generalized instructions below that you probably won't need, but are left as a reference.
 
 ## Prerequisites
 
