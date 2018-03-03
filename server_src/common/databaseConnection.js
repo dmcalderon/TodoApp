@@ -2,8 +2,6 @@
 
 const { Pool } = require('pg')
 
-//const pool = new Pool()
-
 // pools will use environment variables
 // for connection information
 const pool = new Pool({
