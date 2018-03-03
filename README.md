@@ -5,7 +5,8 @@ You may also mark items as complete / incomplete.<br>
 
 To set this app up locally:
  
- 1. Run 'ember build' at the root level of the application
+ 0. Run 'npm install' at the root level of the application.
+ 1. Run 'ember build' at the root level of the application.
  2. PostgreSQL is the DB used by the application. Find the 'todoDbDump' on the root level of the application.
  3. The application database name is assumed to be 'todos'. Follow the instructions found here: <br>https://www.postgresql.org/docs/8.1/static/backup.html#BACKUP-DUMP-RESTORE
     This will allow you to import the database schema. Alternatively, use PgAdmin to accomplish this task.
